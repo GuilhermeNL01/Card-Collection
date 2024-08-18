@@ -13,10 +13,12 @@ final class CollectionItem {
     var cardId: String
     var name: String
     var imageUrl: String
+    var type_Line: String
 
-    init(cardId: String, name: String, imageUrl: String) {
+    init(cardId: String, name: String, imageUrl: String, type_Line: String) {
         self.cardId = cardId
         self.name = name
         self.imageUrl = imageUrl
+        self.type_Line = type_Line
     }
 }

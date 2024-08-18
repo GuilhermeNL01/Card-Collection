@@ -11,6 +11,8 @@ import SwiftData
 struct ContentView: View {
     @State private var cards: [Card] = []
     @State private var searchQuery: String = ""
+    @State private var tapCount: Int = 0
+    @State private var rotation: Double = 0
     
     @Environment(\.modelContext) private var modelContext
     private let scryfallAPI = ScryfallAPI()
@@ -28,6 +30,16 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                             .foregroundColor(.gray)
                             .padding()
+                            .rotationEffect(.degrees(rotation))
+                            .onTapGesture {
+                                tapCount += 1
+                                if tapCount == 4 {
+                                    tapCount = 0
+                                    withAnimation(.easeInOut(duration: 1.0)) {
+                                        rotation += 360
+                                    }
+                                }
+                            }
                         
                         Text("No cards found. Try searching for something.")
                             .font(.subheadline)
@@ -71,7 +83,7 @@ struct ContentView: View {
     }
     
     private func addCardToCollection(card: Card) {
-        let newItem = CollectionItem(cardId: card.id, name: card.name, imageUrl: card.imageUris.normal)
+        let newItem = CollectionItem(cardId: card.id, name: card.name, imageUrl: card.imageUris.normal, type_Line: card.typeLine)
         modelContext.insert(newItem)
         
         do {

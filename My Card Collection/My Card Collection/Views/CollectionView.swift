@@ -12,11 +12,29 @@ struct CollectionView: View {
     @Query private var items: [CollectionItem]
     @Environment(\.modelContext) private var modelContext
 
+    @State private var searchText = ""
+    @State private var showFilterSheet = false
+    @State private var allItems: [CollectionItem] = []
+
     var body: some View {
         NavigationView {
             VStack {
+                HStack {
+                    TextField("Search Cards", text: $searchText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    
+                    Button(action: {
+                        showFilterSheet.toggle()
+                    }) {
+                        Image(systemName: "line.horizontal.3.decrease.circle")
+                            .imageScale(.large)
+                    }
+                    .padding()
+                }
+
                 List {
-                    ForEach(items) { item in
+                    ForEach(filteredItems) { item in
                         HStack {
                             if let url = URL(string: item.imageUrl) {
                                 AsyncImage(url: url) { image in
@@ -37,7 +55,7 @@ struct CollectionView: View {
                                 Text(item.name)
                                     .font(.headline)
                                     .foregroundColor(.primary)
-                                Text("Card ID: \(item.cardId)")
+                                Text("\(item.type_Line)")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -56,18 +74,48 @@ struct CollectionView: View {
                 .cornerRadius(12)
                 .shadow(radius: 10)
             }
+            .onAppear {
+                allItems = items
+            }
+            .sheet(isPresented: $showFilterSheet) {
+                FilterSheetView()
+            }
+        }
+    }
+
+    private var filteredItems: [CollectionItem] {
+        allItems.filter { item in
+            searchText.isEmpty || item.name.localizedCaseInsensitiveContains(searchText)
         }
     }
 
     private func deleteItems(at offsets: IndexSet) {
         for index in offsets {
-            let itemToDelete = items[index]
+            let itemToDelete = allItems[index]
             modelContext.delete(itemToDelete) // Remove the item from the context
         }
         do {
             try modelContext.save() // Save the changes
         } catch {
             print("Error saving after deletion: \(error.localizedDescription)")
+        }
+    }
+}
+
+struct FilterSheetView: View {
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        NavigationView {
+            Text("Filter options")
+                .navigationTitle("Filters")
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
+                    }
+                }
         }
     }
 }

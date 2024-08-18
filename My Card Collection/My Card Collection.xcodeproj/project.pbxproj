@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4046AE332C719EC200C615B9 /* Planewalker.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4046AE322C719EB000C615B9 /* Planewalker.otf */; };
+		4046AE372C719F4A00C615B9 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE362C719F4A00C615B9 /* FontManager.swift */; };
 		40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */; };
 		40E068C32C71153100564C36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C22C71153100564C36 /* ContentView.swift */; };
 		40E068C72C71153200564C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E068C62C71153200564C36 /* Assets.xcassets */; };
@@ -22,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4046AE322C719EB000C615B9 /* Planewalker.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Planewalker.otf; sourceTree = "<group>"; };
+		4046AE342C719EE000C615B9 /* My-Card-Collection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "My-Card-Collection-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4046AE362C719F4A00C615B9 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		40E068BD2C71153100564C36 /* My Card Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Card Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Card_CollectionApp.swift; sourceTree = "<group>"; };
 		40E068C22C71153100564C36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4046AE312C719E9600C615B9 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				4046AE322C719EB000C615B9 /* Planewalker.otf */,
+				4046AE362C719F4A00C615B9 /* FontManager.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		40E068B42C71153100564C36 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,8 @@
 		40E068BF2C71153100564C36 /* My Card Collection */ = {
 			isa = PBXGroup;
 			children = (
+				4046AE342C719EE000C615B9 /* My-Card-Collection-Info.plist */,
+				4046AE312C719E9600C615B9 /* Font */,
 				40E068D92C7116C200564C36 /* Service */,
 				40E068D22C71168000564C36 /* Views */,
 				40E068D12C71167A00564C36 /* Model */,
@@ -181,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4046AE332C719EC200C615B9 /* Planewalker.otf in Resources */,
 				40E068CA2C71153200564C36 /* Preview Assets.xcassets in Resources */,
 				40E068C72C71153200564C36 /* Assets.xcassets in Resources */,
 			);
@@ -199,6 +216,7 @@
 				40E068DB2C7116D300564C36 /* ScryfallAPI.swift in Sources */,
 				40E068D82C7116B400564C36 /* CollectionItem.swift in Sources */,
 				40E068C32C71153100564C36 /* ContentView.swift in Sources */,
+				4046AE372C719F4A00C615B9 /* FontManager.swift in Sources */,
 				40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */,
 				40E068E12C71195300564C36 /* SearchBar.swift in Sources */,
 				40E068D42C71168C00564C36 /* Card.swift in Sources */,
@@ -339,6 +357,7 @@
 				DEVELOPMENT_TEAM = M9H5R689TD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My-Card-Collection-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cards Dungeon";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -369,6 +388,7 @@
 				DEVELOPMENT_TEAM = M9H5R689TD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My-Card-Collection-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cards Dungeon";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

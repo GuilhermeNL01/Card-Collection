@@ -37,7 +37,7 @@ struct ContentView: View {
                                 viewModel.handleTapGesture()
                             }
                         
-                        Text("No cards found. Try searching for something.")
+                        Text(NSLocalizedString("No cards found. Try searching for something.", comment: ""))
                             .font(.subheadline)
                             .foregroundColor(.gray)
                             .padding()
@@ -78,7 +78,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Card Search")
+            .navigationTitle(NSLocalizedString("Card Search", comment: ""))
             .background(Color(.systemBackground))
         }
         .navigationViewStyle(StackNavigationViewStyle())

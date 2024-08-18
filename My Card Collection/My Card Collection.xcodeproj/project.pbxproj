@@ -16,6 +16,7 @@
 		4046AE4E2C72523F00C615B9 /* FilterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */; };
 		4046AE522C7266BC00C615B9 /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE512C7266BC00C615B9 /* TapGestureRecognizer.swift */; };
 		4046AE542C726F6700C615B9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE532C726F6700C615B9 /* InfoView.swift */; };
+		4046AE562C728DB400C615B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4046AE552C728DB400C615B9 /* Localizable.xcstrings */; };
 		40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */; };
 		40E068C32C71153100564C36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C22C71153100564C36 /* ContentView.swift */; };
 		40E068C72C71153200564C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E068C62C71153200564C36 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewModel.swift; sourceTree = "<group>"; };
 		4046AE512C7266BC00C615B9 /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
 		4046AE532C726F6700C615B9 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		4046AE552C728DB400C615B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		40E068BD2C71153100564C36 /* My Card Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Card Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Card_CollectionApp.swift; sourceTree = "<group>"; };
 		40E068C22C71153100564C36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				40E068D02C71166700564C36 /* App */,
 				40E068C82C71153200564C36 /* Preview Content */,
 				4046AE512C7266BC00C615B9 /* TapGestureRecognizer.swift */,
+				4046AE552C728DB400C615B9 /* Localizable.xcstrings */,
 			);
 			path = "My Card Collection";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 40E068B42C71153100564C36;
 			productRefGroup = 40E068BE2C71153100564C36 /* Products */;
@@ -220,6 +224,7 @@
 			files = (
 				40E068CA2C71153200564C36 /* Preview Assets.xcassets in Resources */,
 				40E068C72C71153200564C36 /* Assets.xcassets in Resources */,
+				4046AE562C728DB400C615B9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

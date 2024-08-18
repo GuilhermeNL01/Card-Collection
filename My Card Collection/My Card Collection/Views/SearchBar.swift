@@ -12,15 +12,15 @@ struct SearchBar: View {
     @StateObject private var viewModel = SearchBarViewModel()
     @Binding var text: String
     let onSearch: () -> Void
-    let onEditingStart: () -> Void // Novo parâmetro
+    let onEditingStart: () -> Void
     
     @State private var debounceCancellable: AnyCancellable?
     
     var body: some View {
         HStack {
-            TextField("Search Cards", text: $text, onEditingChanged: { isEditing in
+            TextField(NSLocalizedString("Search Cards", comment: ""), text: $text, onEditingChanged: { isEditing in
                 if isEditing {
-                    onEditingStart() // Chame a ação quando a edição começar
+                    onEditingStart()
                 }
             }, onCommit: onSearch)
                 .textFieldStyle(PlainTextFieldStyle())

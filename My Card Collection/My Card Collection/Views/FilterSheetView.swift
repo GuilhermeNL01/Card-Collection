@@ -13,11 +13,11 @@ struct FilterSheetView: View {
 
     var body: some View {
         NavigationView {
-            Text("Filter options")
-                .navigationTitle("Filters")
+            Text(NSLocalizedString("Filter options", comment:""))
+                .navigationTitle(NSLocalizedString("Filters", comment: ""))
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
+                        Button(NSLocalizedString("Cancel", comment: "")) {
                             viewModel.cancel()
                         }
                     }

@@ -20,12 +20,12 @@ struct EditCardView: View {
 
     var body: some View {
         Form {
-            TextField("Card Name", text: $item.name)
-            TextField("Image URL", text: $item.imageUrl)
+            TextField(NSLocalizedString("Card Name", comment: ""), text: $item.name)
+            TextField(NSLocalizedString("Image URL", comment: ""), text: $item.imageUrl)
         }
-        .navigationTitle("Edit Card")
+        .navigationTitle(NSLocalizedString("Edit Card", comment: ""))
         .toolbar {
-            Button("Save") {
+            Button(NSLocalizedString("Save", comment: "")) {
                 viewModel.saveChanges(context: modelContext)
             }
         }

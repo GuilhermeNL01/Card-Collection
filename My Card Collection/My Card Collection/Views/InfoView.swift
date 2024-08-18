@@ -18,7 +18,7 @@ struct InfoView: View {
                     .padding(.top)
                 
                 // App Overview
-                Text("Welcome to Cards Dungeon! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order.")
+                Text(NSLocalizedString("Welcome to Cards Dungeon! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order.", comment: ""))
                     .font(.body)
                     .padding(.bottom)
                 
@@ -26,7 +26,7 @@ struct InfoView: View {
                 
                 // Contact Information
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Contact Us:")
+                    Text(NSLocalizedString("Contact Us:", comment:""))
                         .font(.headline)
                     
                     HStack {
@@ -53,27 +53,25 @@ struct InfoView: View {
                 }
                 .padding(.bottom)
                 
-                Divider() // Divider between sections
-                
-                // Privacy Policy
+                Divider()
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Privacy Policy:")
+                    Text(NSLocalizedString("Privacy Policy:", comment: ""))
                         .font(.headline)
                     
-                    Link("Read our Privacy Policy", destination: URL(string: "https://your-privacy-policy-url.com")!)
+                    Link(NSLocalizedString("Read our Privacy Policy", comment: ""), destination: URL(string: "https://sites.google.com/view/cardsdungeon/privacy-policy?authuser=3")!)
                         .font(.body)
                         .foregroundColor(.accentColor)
                 }
                 .padding(.bottom)
                 
-                Divider() // Divider between sections
+                Divider()
                 
-                // Disclaimer and Copyright
+                
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Disclaimer:")
+                    Text(NSLocalizedString("Disclaimer:", comment: ""))
                         .font(.headline)
                     
-                    Text("This app is an independent project and is not officially affiliated with Wizards of the Coast. All rights to the names and images of the cards belong to their respective owners.")
+                    Text(NSLocalizedString("This app is an independent project and is not officially affiliated with Wizards of the Coast. All rights to the names and images of the cards belong to their respective owners.", comment:""))
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -83,7 +81,7 @@ struct InfoView: View {
             .padding()
             .background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
         }
-        .navigationBarTitle("About", displayMode: .inline)
+        .navigationBarTitle(NSLocalizedString("About", comment: ""), displayMode: .inline)
     }
 }
 

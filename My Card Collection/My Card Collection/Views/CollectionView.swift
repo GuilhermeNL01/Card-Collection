@@ -17,7 +17,7 @@ struct CollectionView: View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Search Cards", text: $viewModel.searchText)
+                    TextField(NSLocalizedString("Search Cards", comment: ""), text: $viewModel.searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                 }
@@ -65,7 +65,7 @@ struct CollectionView: View {
                     }
                 }
                 .listStyle(PlainListStyle()) 
-                .navigationTitle("My Collection")
+                .navigationTitle(NSLocalizedString("My Collection", comment: ""))
                 .toolbar {
                     EditButton()
                 }

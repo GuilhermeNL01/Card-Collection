@@ -17,7 +17,6 @@ struct CardDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                // Exibe a imagem da carta
                 if let imageUrl = URL(string: card.imageUris.normal) {
                     AsyncImage(url: imageUrl) { image in
                         image.resizable()
@@ -31,7 +30,7 @@ struct CardDetailView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
                 } else {
-                    Text("Image not available")
+                    Text(NSLocalizedString("Image not available", comment: ""))
                         .font(.title2)
                         .foregroundColor(.gray)
                         .padding()
@@ -41,7 +40,7 @@ struct CardDetailView: View {
                     Button(action: {
                         viewModel.addCardToCollection(card: card, addCardAction: addCardToCollection)
                     }) {
-                        Text("+ Add to Collection")
+                        Text(NSLocalizedString("+ Add to Collection", comment:""))
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -58,7 +57,7 @@ struct CardDetailView: View {
                         }
                     }
                     .alert(isPresented: $viewModel.showAlert) {
-                        Alert(title: Text("Card Added"), message: Text("\(card.name) has been added to your collection."), dismissButton: .default(Text("OK")))
+                        Alert(title: Text(NSLocalizedString("Card Added", comment: "")), message: Text("\(card.name) \(NSLocalizedString("has been added to your collection.", comment: ""))"), dismissButton: .default(Text("OK")))
                     }
                 }
             }

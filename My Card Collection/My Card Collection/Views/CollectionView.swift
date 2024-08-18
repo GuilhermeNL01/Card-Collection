@@ -12,7 +12,7 @@ struct CollectionView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [CollectionItem]
     @StateObject private var viewModel = CollectionViewModel()
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -20,16 +20,8 @@ struct CollectionView: View {
                     TextField("Search Cards", text: $viewModel.searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                    
-                    Button(action: {
-                        viewModel.showFilterSheet.toggle()
-                    }) {
-                        Image(systemName: "line.horizontal.3.decrease.circle")
-                            .imageScale(.large)
-                    }
-                    .padding()
                 }
-
+                
                 List {
                     ForEach(viewModel.filteredItems) { item in
                         NavigationLink(destination: CardDetailView(
@@ -72,21 +64,16 @@ struct CollectionView: View {
                         viewModel.deleteItems(at: indexSet, context: modelContext)
                     }
                 }
-                .listStyle(InsetGroupedListStyle())
+                .listStyle(PlainListStyle()) 
                 .navigationTitle("My Collection")
                 .toolbar {
                     EditButton()
                 }
-                .background(Color(UIColor.systemGroupedBackground))
-                .cornerRadius(12)
-                .shadow(radius: 10)
             }
             .onAppear {
                 viewModel.loadItems(from: items)
             }
-            .sheet(isPresented: $viewModel.showFilterSheet) {
-                FilterSheetView()
-            }
         }
+        .background(Color(UIColor.systemBackground))
     }
 }

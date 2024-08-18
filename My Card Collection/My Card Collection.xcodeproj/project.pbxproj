@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4046AE332C719EC200C615B9 /* Planewalker.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4046AE322C719EB000C615B9 /* Planewalker.otf */; };
-		4046AE372C719F4A00C615B9 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE362C719F4A00C615B9 /* FontManager.swift */; };
 		4046AE412C72506D00C615B9 /* FilterSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE402C72506D00C615B9 /* FilterSheetView.swift */; };
 		4046AE442C7251D300C615B9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE432C7251D300C615B9 /* ContentViewModel.swift */; };
 		4046AE462C7251EB00C615B9 /* CardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE452C7251EB00C615B9 /* CardDetailViewModel.swift */; };
@@ -17,6 +15,7 @@
 		4046AE4C2C72522B00C615B9 /* EditCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4B2C72522B00C615B9 /* EditCardViewModel.swift */; };
 		4046AE4E2C72523F00C615B9 /* FilterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */; };
 		4046AE522C7266BC00C615B9 /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE512C7266BC00C615B9 /* TapGestureRecognizer.swift */; };
+		4046AE542C726F6700C615B9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE532C726F6700C615B9 /* InfoView.swift */; };
 		40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */; };
 		40E068C32C71153100564C36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C22C71153100564C36 /* ContentView.swift */; };
 		40E068C72C71153200564C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E068C62C71153200564C36 /* Assets.xcassets */; };
@@ -32,9 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4046AE322C719EB000C615B9 /* Planewalker.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Planewalker.otf; sourceTree = "<group>"; };
 		4046AE342C719EE000C615B9 /* My-Card-Collection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "My-Card-Collection-Info.plist"; sourceTree = SOURCE_ROOT; };
-		4046AE362C719F4A00C615B9 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		4046AE402C72506D00C615B9 /* FilterSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetView.swift; sourceTree = "<group>"; };
 		4046AE432C7251D300C615B9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		4046AE452C7251EB00C615B9 /* CardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +40,7 @@
 		4046AE4B2C72522B00C615B9 /* EditCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewModel.swift; sourceTree = "<group>"; };
 		4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewModel.swift; sourceTree = "<group>"; };
 		4046AE512C7266BC00C615B9 /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
+		4046AE532C726F6700C615B9 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		40E068BD2C71153100564C36 /* My Card Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Card Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Card_CollectionApp.swift; sourceTree = "<group>"; };
 		40E068C22C71153100564C36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,15 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4046AE312C719E9600C615B9 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				4046AE322C719EB000C615B9 /* Planewalker.otf */,
-				4046AE362C719F4A00C615B9 /* FontManager.swift */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		4046AE422C7251C500C615B9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +101,6 @@
 			children = (
 				4046AE422C7251C500C615B9 /* ViewModel */,
 				4046AE342C719EE000C615B9 /* My-Card-Collection-Info.plist */,
-				4046AE312C719E9600C615B9 /* Font */,
 				40E068D92C7116C200564C36 /* Service */,
 				40E068D22C71168000564C36 /* Views */,
 				40E068D12C71167A00564C36 /* Model */,
@@ -158,6 +146,7 @@
 				40E068E42C711BFB00564C36 /* CollectionView.swift */,
 				40E068E62C711C1300564C36 /* EditCardView.swift */,
 				4046AE402C72506D00C615B9 /* FilterSheetView.swift */,
+				4046AE532C726F6700C615B9 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,7 +218,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4046AE332C719EC200C615B9 /* Planewalker.otf in Resources */,
 				40E068CA2C71153200564C36 /* Preview Assets.xcassets in Resources */,
 				40E068C72C71153200564C36 /* Assets.xcassets in Resources */,
 			);
@@ -250,9 +238,9 @@
 				40E068DB2C7116D300564C36 /* ScryfallAPI.swift in Sources */,
 				40E068D82C7116B400564C36 /* CollectionItem.swift in Sources */,
 				4046AE482C7251FC00C615B9 /* SearchViewModel.swift in Sources */,
+				4046AE542C726F6700C615B9 /* InfoView.swift in Sources */,
 				40E068C32C71153100564C36 /* ContentView.swift in Sources */,
 				4046AE4C2C72522B00C615B9 /* EditCardViewModel.swift in Sources */,
-				4046AE372C719F4A00C615B9 /* FontManager.swift in Sources */,
 				40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */,
 				4046AE462C7251EB00C615B9 /* CardDetailViewModel.swift in Sources */,
 				4046AE522C7266BC00C615B9 /* TapGestureRecognizer.swift in Sources */,

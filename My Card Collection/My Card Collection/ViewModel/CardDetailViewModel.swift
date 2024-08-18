@@ -8,19 +8,35 @@
 import SwiftUI
 
 class CardDetailViewModel: ObservableObject {
-    @Published var isAdded = false
-    @Published var showAlert = false
+    @Published var isAdded: Bool = false
+    @Published var showAlert: Bool = false
     
+    private let addedCardsKey = "addedCards"
+
     func addCardToCollection(card: Card, addCardAction: (Card) -> Void) {
+        // Adiciona a carta à coleção
         addCardAction(card)
         
-        // Trigger Haptic Feedback
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
-        
-        withAnimation(.easeInOut(duration: 0.2)) {
-            isAdded = true
-        }
+        // Marca a carta como adicionada
+        isAdded = true
         showAlert = true
+        
+        // Persiste a imagem da carta
+        saveCardImage(card: card)
+    }
+    
+    private func saveCardImage(card: Card) {
+        // Carrega URLs existentes das cartas adicionadas
+        var addedCards = UserDefaults.standard.array(forKey: addedCardsKey) as? [String] ?? []
+        
+        // Adiciona a URL da imagem da nova carta
+        if !addedCards.contains(card.imageUris.normal) {
+            addedCards.append(card.imageUris.normal)
+            UserDefaults.standard.set(addedCards, forKey: addedCardsKey)
+        }
+    }
+    
+    func loadAddedCards() -> [String] {
+        return UserDefaults.standard.array(forKey: addedCardsKey) as? [String] ?? []
     }
 }

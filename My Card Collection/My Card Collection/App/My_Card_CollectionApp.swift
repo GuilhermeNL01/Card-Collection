@@ -28,11 +28,15 @@ struct My_Card_CollectionApp: App {
             TabView {
                 ContentView()
                     .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
+                        Label("Search", systemImage:"magnifyingglass")
                     }
                 CollectionView()
                     .tabItem {
                         Label("Collection", systemImage: "folder")
+                    }
+                InfoView()
+                    .tabItem {
+                        Label("About",systemImage: "info.circle.fill")
                     }
             }
             .modelContainer(sharedModelContainer)

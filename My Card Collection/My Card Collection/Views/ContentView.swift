@@ -52,7 +52,7 @@ struct ContentView: View {
                             hideAddButton: false
                         )) {
                             HStack(alignment: .top) {
-                                if let url = URL(string: card.imageUris.borderCrop) {
+                                if let url = URL(string: card.imageUris.normal) {
                                     AsyncImage(url: url) { image in
                                         image.resizable()
                                     } placeholder: {

@@ -50,7 +50,7 @@ struct ContentView: View {
                     .background(Color(.systemBackground))
                 } else {
                     List(cards) { card in
-                        NavigationLink(destination: CardDetailView(card: card, addCardToCollection: addCardToCollection)) {
+                        NavigationLink(destination: CardDetailView(card: card, addCardToCollection: addCardToCollection, hideAddButton: false)) {
                             VStack(alignment: .leading) {
                                 Text(card.name)
                                     .font(.headline)

@@ -35,33 +35,41 @@ struct CollectionView: View {
 
                 List {
                     ForEach(filteredItems) { item in
-                        HStack {
-                            if let url = URL(string: item.imageUrl) {
-                                AsyncImage(url: url) { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fill)
+                        NavigationLink(destination: CardDetailView(
+                            card: Card(id: item.cardId, name: item.name, typeLine: item.type_Line, imageUris: Card.ImageURIs(
+                                small: item.imageUrl, normal: item.imageUrl, large: item.imageUrl, png: "", artCrop: "", borderCrop: ""), oracleText: ""
+                            ),
+                            addCardToCollection: { _ in },
+                            hideAddButton: true 
+                        )) {
+                            HStack {
+                                if let url = URL(string: item.imageUrl) {
+                                    AsyncImage(url: url) { image in
+                                        image.resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 60, height: 60)
+                                    } placeholder: {
+                                        ProgressView()
+                                            .frame(width: 60, height: 60)
+                                    }
+                                } else {
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.2))
                                         .frame(width: 60, height: 60)
-                                } placeholder: {
-                                    ProgressView()
-                                        .frame(width: 60, height: 60)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
                                 }
-                            } else {
-                                Rectangle()
-                                    .fill(Color.gray.opacity(0.2))
-                                    .frame(width: 60, height: 60)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                        .foregroundColor(.primary)
+                                    Text("\(item.type_Line)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.leading, 8)
                             }
-                            VStack(alignment: .leading) {
-                                Text(item.name)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-                                Text("\(item.type_Line)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                            .padding(.leading, 8)
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
                     }
                     .onDelete(perform: deleteItems)
                 }
@@ -98,24 +106,6 @@ struct CollectionView: View {
             try modelContext.save() // Save the changes
         } catch {
             print("Error saving after deletion: \(error.localizedDescription)")
-        }
-    }
-}
-
-struct FilterSheetView: View {
-    @Environment(\.dismiss) var dismiss
-
-    var body: some View {
-        NavigationView {
-            Text("Filter options")
-                .navigationTitle("Filters")
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
-                            dismiss()
-                        }
-                    }
-                }
         }
     }
 }

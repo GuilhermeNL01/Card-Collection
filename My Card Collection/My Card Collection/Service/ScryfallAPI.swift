@@ -13,7 +13,7 @@ class ScryfallAPI {
     func searchCards(query: String, completion: @escaping ([Card]?) -> Void) {
         let urlString = "\(baseURL)?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         guard let url = URL(string: urlString) else {
-            print("Invalid URL")
+            print("Invalid URL: \(urlString)")
             completion(nil)
             return
         }
@@ -31,14 +31,10 @@ class ScryfallAPI {
                 return
             }
             
-            if let rawString = String(data: data, encoding: .utf8) {
-                print("Raw API Response: \(rawString)")
-            }
-            
             do {
                 let response = try JSONDecoder().decode(ScryfallResponse.self, from: data)
                 if response.data.isEmpty {
-                    print("No cards found for the query")
+                    print("No cards found for the query: \(query)")
                     completion(nil)
                 } else {
                     completion(response.data)
@@ -50,4 +46,5 @@ class ScryfallAPI {
         }
         task.resume()
     }
+
 }

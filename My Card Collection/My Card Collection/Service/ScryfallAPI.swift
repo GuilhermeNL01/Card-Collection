@@ -46,5 +46,4 @@ class ScryfallAPI {
         }
         task.resume()
     }
-
 }

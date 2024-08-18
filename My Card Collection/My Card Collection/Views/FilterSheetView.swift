@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FilterSheetView: View {
+    @StateObject private var viewModel = FilterSheetViewModel()
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -17,11 +18,10 @@ struct FilterSheetView: View {
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel") {
-                            dismiss()
+                            viewModel.cancel()
                         }
                     }
                 }
         }
     }
 }
-

@@ -11,6 +11,12 @@ import SwiftData
 struct EditCardView: View {
     @Binding var item: CollectionItem
     @Environment(\.modelContext) private var modelContext
+    @StateObject private var viewModel: EditCardViewModel
+
+    init(item: Binding<CollectionItem>) {
+        self._item = item
+        self._viewModel = StateObject(wrappedValue: EditCardViewModel(item: item.wrappedValue))
+    }
 
     var body: some View {
         Form {
@@ -20,11 +26,7 @@ struct EditCardView: View {
         .navigationTitle("Edit Card")
         .toolbar {
             Button("Save") {
-                do {
-                    try modelContext.save()
-                } catch {
-                    print("Failed to save changes: \(error.localizedDescription)")
-                }
+                viewModel.saveChanges(context: modelContext)
             }
         }
     }

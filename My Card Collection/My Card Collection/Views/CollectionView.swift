@@ -9,23 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct CollectionView: View {
-    @Query private var items: [CollectionItem]
     @Environment(\.modelContext) private var modelContext
-
-    @State private var searchText = ""
-    @State private var showFilterSheet = false
-    @State private var allItems: [CollectionItem] = []
+    @Query private var items: [CollectionItem]
+    @StateObject private var viewModel = CollectionViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Search Cards", text: $searchText)
+                    TextField("Search Cards", text: $viewModel.searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                     
                     Button(action: {
-                        showFilterSheet.toggle()
+                        viewModel.showFilterSheet.toggle()
                     }) {
                         Image(systemName: "line.horizontal.3.decrease.circle")
                             .imageScale(.large)
@@ -34,13 +31,13 @@ struct CollectionView: View {
                 }
 
                 List {
-                    ForEach(filteredItems) { item in
+                    ForEach(viewModel.filteredItems) { item in
                         NavigationLink(destination: CardDetailView(
                             card: Card(id: item.cardId, name: item.name, typeLine: item.type_Line, imageUris: Card.ImageURIs(
                                 small: item.imageUrl, normal: item.imageUrl, large: item.imageUrl, png: "", artCrop: "", borderCrop: ""), oracleText: ""
                             ),
                             addCardToCollection: { _ in },
-                            hideAddButton: true 
+                            hideAddButton: true
                         )) {
                             HStack {
                                 if let url = URL(string: item.imageUrl) {
@@ -71,7 +68,9 @@ struct CollectionView: View {
                             .padding(.vertical, 4)
                         }
                     }
-                    .onDelete(perform: deleteItems)
+                    .onDelete { indexSet in
+                        viewModel.deleteItems(at: indexSet, context: modelContext)
+                    }
                 }
                 .listStyle(InsetGroupedListStyle())
                 .navigationTitle("My Collection")
@@ -83,29 +82,11 @@ struct CollectionView: View {
                 .shadow(radius: 10)
             }
             .onAppear {
-                allItems = items
+                viewModel.loadItems(from: items)
             }
-            .sheet(isPresented: $showFilterSheet) {
+            .sheet(isPresented: $viewModel.showFilterSheet) {
                 FilterSheetView()
             }
-        }
-    }
-
-    private var filteredItems: [CollectionItem] {
-        allItems.filter { item in
-            searchText.isEmpty || item.name.localizedCaseInsensitiveContains(searchText)
-        }
-    }
-
-    private func deleteItems(at offsets: IndexSet) {
-        for index in offsets {
-            let itemToDelete = allItems[index]
-            modelContext.delete(itemToDelete) // Remove the item from the context
-        }
-        do {
-            try modelContext.save() // Save the changes
-        } catch {
-            print("Error saving after deletion: \(error.localizedDescription)")
         }
     }
 }

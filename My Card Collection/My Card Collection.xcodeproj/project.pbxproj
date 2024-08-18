@@ -16,7 +16,6 @@
 		4046AE4A2C72521600C615B9 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE492C72521600C615B9 /* CollectionViewModel.swift */; };
 		4046AE4C2C72522B00C615B9 /* EditCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4B2C72522B00C615B9 /* EditCardViewModel.swift */; };
 		4046AE4E2C72523F00C615B9 /* FilterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */; };
-		4046AE502C72538800C615B9 /* SearchCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046AE4F2C72538800C615B9 /* SearchCache.swift */; };
 		40E068C12C71153100564C36 /* My_Card_CollectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */; };
 		40E068C32C71153100564C36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E068C22C71153100564C36 /* ContentView.swift */; };
 		40E068C72C71153200564C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E068C62C71153200564C36 /* Assets.xcassets */; };
@@ -42,7 +41,6 @@
 		4046AE492C72521600C615B9 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		4046AE4B2C72522B00C615B9 /* EditCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewModel.swift; sourceTree = "<group>"; };
 		4046AE4D2C72523F00C615B9 /* FilterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewModel.swift; sourceTree = "<group>"; };
-		4046AE4F2C72538800C615B9 /* SearchCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCache.swift; sourceTree = "<group>"; };
 		40E068BD2C71153100564C36 /* My Card Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Card Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E068C02C71153100564C36 /* My_Card_CollectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Card_CollectionApp.swift; sourceTree = "<group>"; };
 		40E068C22C71153100564C36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			children = (
 				40E068DA2C7116D300564C36 /* ScryfallAPI.swift */,
 				40E068DE2C71187800564C36 /* ScryfallResponse.swift */,
-				4046AE4F2C72538800C615B9 /* SearchCache.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -250,7 +247,6 @@
 				40E068DB2C7116D300564C36 /* ScryfallAPI.swift in Sources */,
 				40E068D82C7116B400564C36 /* CollectionItem.swift in Sources */,
 				4046AE482C7251FC00C615B9 /* SearchViewModel.swift in Sources */,
-				4046AE502C72538800C615B9 /* SearchCache.swift in Sources */,
 				40E068C32C71153100564C36 /* ContentView.swift in Sources */,
 				4046AE4C2C72522B00C615B9 /* EditCardViewModel.swift in Sources */,
 				4046AE372C719F4A00C615B9 /* FontManager.swift in Sources */,

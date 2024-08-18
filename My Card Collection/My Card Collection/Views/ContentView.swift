@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+import Combine
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
@@ -15,7 +15,14 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $viewModel.searchQuery, onSearch: viewModel.searchCards)
+                SearchBar(
+                    text: $viewModel.searchQuery,
+                    onSearch: viewModel.searchCards,
+                    onEditingStart: {
+                        viewModel.cards.removeAll()
+                        viewModel.searchQuery = ""
+                    }
+                )
                 
                 if viewModel.cards.isEmpty {
                     VStack {
@@ -60,6 +67,13 @@ struct ContentView: View {
             }
             .navigationTitle("Card Search")
             .background(Color(.colorBG))
+            .onTapGesture {
+                dismissKeyboard()
+            }
         }
+    }
+    
+    private func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

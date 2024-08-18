@@ -11,7 +11,7 @@ import Combine
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     @Environment(\.modelContext) private var modelContext
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -46,31 +46,42 @@ struct ContentView: View {
                     .background(Color(.systemBackground))
                 } else {
                     List(viewModel.cards) { card in
-                        NavigationLink(destination: CardDetailView(card: card, addCardToCollection: { viewModel.addCardToCollection(card: $0, context: modelContext) }, hideAddButton: false)) {
-                            VStack(alignment: .leading) {
-                                Text(card.name)
-                                    .font(.headline)
-                                Text(card.typeLine)
-                                    .font(.subheadline)
-                                if let url = URL(string: card.imageUris.normal) {
+                        NavigationLink(destination: CardDetailView(
+                            card: card,
+                            addCardToCollection: { viewModel.addCardToCollection(card: $0, context: modelContext) },
+                            hideAddButton: false
+                        )) {
+                            HStack(alignment: .top) {
+                                if let url = URL(string: card.imageUris.borderCrop) {
                                     AsyncImage(url: url) { image in
                                         image.resizable()
                                     } placeholder: {
                                         ProgressView()
                                     }
-                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 60, height: 80)
+                                    .cornerRadius(8)
                                 }
+                                
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(card.name)
+                                        .font(.headline)
+                                        .lineLimit(1)
+                                    Text(card.typeLine)
+                                        .font(.subheadline)
+                                        .lineLimit(1)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.leading, 8)
                             }
+                            .padding(.vertical, 4)
                         }
                     }
                 }
             }
             .navigationTitle("Card Search")
-            .background(Color(.colorBG))
-            .onTapGesture {
-                dismissKeyboard()
-            }
+            .background(Color(.systemBackground))
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func dismissKeyboard() {

@@ -23,7 +23,6 @@ struct CollectionView: View {
                                     image.resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(width: 60, height: 60)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
                                 } placeholder: {
                                     ProgressView()
                                         .frame(width: 60, height: 60)

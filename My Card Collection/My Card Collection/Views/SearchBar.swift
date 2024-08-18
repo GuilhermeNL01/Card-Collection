@@ -13,14 +13,26 @@ struct SearchBar: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
             
             TextField("Search Cards", text: $text, onCommit: onSearch)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(7)
+                .textFieldStyle(PlainTextFieldStyle())
+                .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color(.systemGray4), lineWidth: 1)
+                )
+                .padding(.vertical, 8)
+
+            if !text.isEmpty {
+                Button(action: {
+                    text = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                }
+            }
         }
         .padding(.horizontal)
     }

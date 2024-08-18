@@ -20,26 +20,45 @@ struct ContentView: View {
             VStack {
                 SearchBar(text: $searchQuery, onSearch: searchCards)
                 
-                List(cards) { card in
-                    NavigationLink(destination: CardDetailView(card: card, addCardToCollection: addCardToCollection)) {
-                        VStack(alignment: .leading) {
-                            Text(card.name)
-                                .font(.headline)
-                            Text(card.typeLine)
-                                .font(.subheadline)
-                            if let url = URL(string: card.imageUris.normal) {
-                                AsyncImage(url: url) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
+                if cards.isEmpty {
+                    VStack {
+                        Image("cards")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.gray)
+                            .padding()
+                        
+                        Text("No cards found. Try searching for something.")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color(.systemBackground))
+                } else {
+                    List(cards) { card in
+                        NavigationLink(destination: CardDetailView(card: card, addCardToCollection: addCardToCollection)) {
+                            VStack(alignment: .leading) {
+                                Text(card.name)
+                                    .font(.headline)
+                                Text(card.typeLine)
+                                    .font(.subheadline)
+                                if let url = URL(string: card.imageUris.normal) {
+                                    AsyncImage(url: url) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .aspectRatio(contentMode: .fit)
                                 }
-                                .aspectRatio(contentMode: .fit)
                             }
                         }
                     }
                 }
             }
             .navigationTitle("Card Search")
+            .background(Color(.colorBG))
         }
     }
     
@@ -56,7 +75,7 @@ struct ContentView: View {
         modelContext.insert(newItem)
         
         do {
-            try modelContext.save() 
+            try modelContext.save()
         } catch {
             print("Error saving card: \(error.localizedDescription)")
         }

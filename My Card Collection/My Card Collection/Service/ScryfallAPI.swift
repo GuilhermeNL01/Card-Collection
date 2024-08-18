@@ -31,7 +31,6 @@ class ScryfallAPI {
                 return
             }
             
-            // Print raw data to debug
             if let rawString = String(data: data, encoding: .utf8) {
                 print("Raw API Response: \(rawString)")
             }

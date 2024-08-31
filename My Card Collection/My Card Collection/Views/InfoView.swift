@@ -12,13 +12,13 @@ struct InfoView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 // App Title
-                Text("Cards Dungeon")
+                Text("My Card Collection")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.top)
                 
                 // App Overview
-                Text(NSLocalizedString("Welcome to Cards Dungeon! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order.", comment: ""))
+                Text(NSLocalizedString("Welcome to My Card Collection! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order.", comment: ""))
                     .font(.body)
                     .padding(.bottom)
                 

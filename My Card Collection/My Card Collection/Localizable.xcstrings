@@ -86,9 +86,6 @@
         }
       }
     },
-    "Cards Dungeon" : {
-
-    },
     "cardsdungeon@gmail.com" : {
 
     },
@@ -200,6 +197,9 @@
     },
     "Key" : {
       "extractionState" : "manual"
+    },
+    "My Card Collection" : {
+
     },
     "My Collection" : {
       "extractionState" : "manual",

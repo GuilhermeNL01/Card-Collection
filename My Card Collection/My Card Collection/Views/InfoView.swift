@@ -7,24 +7,28 @@
 
 import SwiftUI
 
+/// `InfoView` é uma view que exibe informações sobre o aplicativo, como uma visão geral, contato, política de privacidade, e aviso de isenção de responsabilidade.
 struct InfoView: View {
+    
+    /// Corpo da `InfoView`, responsável por construir a interface de usuário.
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                // App Title
+                
+                // Título do aplicativo
                 Text("My Card Collection")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.top)
                 
-                // App Overview
+                // Visão geral do aplicativo
                 Text(NSLocalizedString("Welcome to My Card Collection! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order.", comment: ""))
                     .font(.body)
                     .padding(.bottom)
                 
-                Divider() // Divider between sections
+                Divider() // Divisor entre seções
                 
-                // Contact Information
+                // Informações de contato
                 VStack(alignment: .leading, spacing: 16) {
                     Text(NSLocalizedString("Contact Us:", comment:""))
                         .font(.headline)
@@ -53,7 +57,9 @@ struct InfoView: View {
                 }
                 .padding(.bottom)
                 
-                Divider()
+                Divider() // Divisor entre seções
+                
+                // Política de Privacidade
                 VStack(alignment: .leading, spacing: 16) {
                     Text(NSLocalizedString("Privacy Policy:", comment: ""))
                         .font(.headline)
@@ -64,9 +70,9 @@ struct InfoView: View {
                 }
                 .padding(.bottom)
                 
-                Divider()
+                Divider() // Divisor entre seções
                 
-                
+                // Isenção de responsabilidade
                 VStack(alignment: .leading, spacing: 16) {
                     Text(NSLocalizedString("Disclaimer:", comment: ""))
                         .font(.headline)
@@ -76,7 +82,7 @@ struct InfoView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 
-                Spacer()
+                Spacer() // Espaçador para alinhar o conteúdo ao topo da tela
             }
             .padding()
             .background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))

@@ -86,9 +86,6 @@
         }
       }
     },
-    "Cards Dungeon" : {
-
-    },
     "cardsdungeon@gmail.com" : {
 
     },
@@ -201,6 +198,9 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "My Card Collection" : {
+
+    },
     "My Collection" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -284,13 +284,13 @@
         }
       }
     },
-    "Welcome to Cards Dungeon! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order." : {
+    "Welcome to My Card Collection! This app was created to help you manage your card collection in a practical and efficient way. With it, you can easily view, add, and organize your cards. Our goal is to provide an intuitive and useful experience to keep your collection always in order." : {
       "extractionState" : "manual",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bem-vindo ao Cards Dungeon! Este aplicativo foi criado para ajudar você a gerenciar sua coleção de cartas de maneira prática e eficiente. Com ele, você pode facilmente visualizar, adicionar e organizar suas cartas. Nosso objetivo é proporcionar uma experiência intuitiva e útil para manter sua coleção sempre em ordem."
+            "value" : "Bem-vindo ao My Card Collection! Este aplicativo foi criado para ajudar você a gerenciar sua coleção de cartas de maneira prática e eficiente. Com ele, você pode facilmente visualizar, adicionar e organizar suas cartas. Nosso objetivo é proporcionar uma experiência intuitiva e útil para manter sua coleção sempre em ordem."
           }
         }
       }

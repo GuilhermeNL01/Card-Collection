@@ -28,15 +28,15 @@ struct My_Card_CollectionApp: App {
             TabView {
                 ContentView()
                     .tabItem {
-                        Label(NSLocalizedString("Search", comment: ""), systemImage:"magnifyingglass")
+                        Label(NSLocalizedString("", comment: ""), systemImage:"magnifyingglass")
                     }
                 CollectionView()
                     .tabItem {
-                        Label(NSLocalizedString("Collection", comment: ""), systemImage: "folder")
+                        Label(NSLocalizedString("", comment: ""), systemImage: "folder")
                     }
                 InfoView()
                     .tabItem {
-                        Label(NSLocalizedString("About", comment: ""),systemImage: "info.circle.fill")
+                        Label(NSLocalizedString("", comment: ""),systemImage: "info.circle.fill")
                     }
             }
             .modelContainer(sharedModelContainer)

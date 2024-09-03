@@ -55,11 +55,6 @@ struct ContentView: View {
                             .onTapGesture {
                                 viewModel.handleTapGesture()
                             }
-                        
-                        Text(NSLocalizedString("No cards found. Try searching for something.", comment: ""))
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .padding()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color(.systemBackground))

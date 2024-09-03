@@ -53,6 +53,7 @@ class ContentViewModel: ObservableObject {
             tapCount = 0
             withAnimation(.easeInOut(duration: 1.0)) {
                 rotation += 360
+                
             }
         }
     }

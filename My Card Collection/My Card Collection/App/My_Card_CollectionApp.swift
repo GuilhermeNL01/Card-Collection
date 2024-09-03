@@ -22,23 +22,28 @@ struct My_Card_CollectionApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor.unselected
+    }
 
     var body: some Scene {
         WindowGroup {
             TabView {
                 ContentView()
                     .tabItem {
-                        Label(NSLocalizedString("", comment: ""), systemImage:"magnifyingglass")
+                        Label(NSLocalizedString("Search", comment: ""), systemImage:"magnifyingglass")
                     }
                 CollectionView()
                     .tabItem {
-                        Label(NSLocalizedString("", comment: ""), systemImage: "folder")
+                        Label(NSLocalizedString("Collection", comment: ""), systemImage: "menucard")
                     }
                 InfoView()
                     .tabItem {
-                        Label(NSLocalizedString("", comment: ""),systemImage: "info.circle.fill")
+                        Label(NSLocalizedString("Info", comment: ""),systemImage: "info.circle.fill")
                     }
             }
+            .accentColor(.accent)
             .modelContainer(sharedModelContainer)
         }
     }

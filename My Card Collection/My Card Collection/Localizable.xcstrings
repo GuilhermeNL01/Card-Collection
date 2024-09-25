@@ -43,6 +43,9 @@
         }
       }
     },
+    "Ainda não há cartas adicionadas." : {
+
+    },
     "Cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -195,6 +198,9 @@
     "Image URL" : {
       "extractionState" : "manual"
     },
+    "Info" : {
+
+    },
     "Key" : {
       "extractionState" : "manual"
     },
@@ -272,6 +278,9 @@
           }
         }
       }
+    },
+    "Select Image Style" : {
+
     },
     "This app is an independent project and is not officially affiliated with Wizards of the Coast. All rights to the names and images of the cards belong to their respective owners." : {
       "extractionState" : "manual",

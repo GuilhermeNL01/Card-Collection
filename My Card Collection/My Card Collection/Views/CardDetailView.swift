@@ -21,13 +21,41 @@ struct CardDetailView: View {
     
     /// `viewModel` é uma instância de `CardDetailViewModel`, que gerencia o estado e a lógica de negócio para a `CardDetailView`.
     @StateObject private var viewModel = CardDetailViewModel()
+    
+    /// Enum para os estilos de imagem disponíveis.
+    enum ImageStyle: String, CaseIterable {
+        case small, normal, large, png, artCrop, borderCrop
+        
+        var title: String {
+            switch self {
+            case .small: return "Small"
+            case .normal: return "Normal"
+            case .large: return "Large"
+            case .png: return "PNG"
+            case .artCrop: return "Art Crop"
+            case .borderCrop: return "Border Crop"
+            }
+        }
+    }
+    
+    /// Variável de estado para armazenar o estilo de imagem selecionado.
+    @State private var selectedStyle: ImageStyle = .normal
 
     /// Corpo da `CardDetailView`, responsável por construir a interface de usuário.
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                // Verifica se há uma URL válida para a imagem da carta. Se sim, exibe a imagem; caso contrário, exibe um texto de erro.
-                if let imageUrl = URL(string: card.imageUris.normal) {
+                // Picker para seleção do estilo da imagem.
+                Picker("Select Image Style", selection: $selectedStyle) {
+                    ForEach(ImageStyle.allCases, id: \.self) { style in
+                        Text(style.title).tag(style)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                // Verifica se há uma URL válida para a imagem da carta com base no estilo selecionado. Se sim, exibe a imagem; caso contrário, exibe um texto de erro.
+                if let imageUrl = URL(string: imageUrlForStyle(selectedStyle)) {
                     AsyncImage(url: imageUrl) { image in
                         image.resizable()
                             .scaledToFit()
@@ -84,5 +112,26 @@ struct CardDetailView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(card.name)
+    }
+    
+    /// Retorna a URL da imagem com base no estilo selecionado.
+    ///
+    /// - Parameter style: O estilo da imagem selecionado.
+    /// - Returns: A URL da imagem correspondente ao estilo selecionado.
+    private func imageUrlForStyle(_ style: ImageStyle) -> String {
+        switch style {
+        case .small:
+            return card.imageUris.small
+        case .normal:
+            return card.imageUris.normal
+        case .large:
+            return card.imageUris.large
+        case .png:
+            return card.imageUris.png
+        case .artCrop:
+            return card.imageUris.artCrop
+        case .borderCrop:
+            return card.imageUris.borderCrop
+        }
     }
 }

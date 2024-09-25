@@ -33,8 +33,15 @@ struct SearchBar: View {
             TextField(NSLocalizedString("Search Cards", comment: ""), text: $text, onEditingChanged: { isEditing in
                 if isEditing {
                     onEditingStart()
+                    // Feedback tátil quando o usuário começa a digitar
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 }
-            }, onCommit: onSearch)
+            }, onCommit: {
+                onSearch()
+                // Feedback tátil ao confirmar a pesquisa
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                dismissKeyboard()
+            })
                 .textFieldStyle(PlainTextFieldStyle())
                 .padding(10)
                 .background(Color(.systemGray6))
@@ -44,6 +51,8 @@ struct SearchBar: View {
                         .stroke(Color(.systemGray4), lineWidth: 1)
                 )
                 .padding(.vertical, 8)
+                .keyboardType(.default)
+                .submitLabel(.done) // Adiciona o botão "Done" no teclado
                 .onChange(of: text) { newValue in
                     // Aplica debounce para a operação de pesquisa
                     debounceCancellable?.cancel()
@@ -59,6 +68,8 @@ struct SearchBar: View {
                 Button(action: {
                     viewModel.clearText()
                     text = viewModel.text
+                    // Feedback tátil ao limpar o texto
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(.gray)
@@ -66,5 +77,10 @@ struct SearchBar: View {
             }
         }
         .padding(.horizontal)
+    }
+    
+    /// Função privada para dispensar o teclado quando o botão "Done" é pressionado.
+    private func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

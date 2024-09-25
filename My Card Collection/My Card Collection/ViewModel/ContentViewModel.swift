@@ -63,7 +63,7 @@ class ContentViewModel: ObservableObject {
     ///   - card: A carta a ser adicionada à coleção.
     ///   - context: O contexto de dados onde a carta será salva.
     func addCardToCollection(card: Card, context: ModelContext) {
-        let newItem = CollectionItem(cardId: card.id, name: card.name, imageUrl: card.imageUris.normal, type_Line: card.typeLine)
+        let newItem = CollectionItem(cardId: card.id, name: card.name, imageUrl: card.imageUris.png, type_Line: card.typeLine)
         context.insert(newItem)
         
         do {

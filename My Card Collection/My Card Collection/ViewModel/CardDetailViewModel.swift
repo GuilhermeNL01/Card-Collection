@@ -62,8 +62,8 @@ class CardDetailViewModel: ObservableObject {
         var addedCards = UserDefaults.standard.array(forKey: addedCardsKey) as? [String] ?? []
         
         // Adiciona a URL da imagem da nova carta
-        if !addedCards.contains(card.imageUris.normal) {
-            addedCards.append(card.imageUris.normal)
+        if !addedCards.contains(card.imageUris.png) {
+            addedCards.append(card.imageUris.png)
             UserDefaults.standard.set(addedCards, forKey: addedCardsKey)
         }
     }

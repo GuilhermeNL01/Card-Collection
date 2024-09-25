@@ -69,7 +69,7 @@ struct ContentView: View {
                         )) {
                             HStack(alignment: .top) {
                                 // Exibe a imagem da carta, se disponível.
-                                if let url = URL(string: card.imageUris.normal) {
+                                if let url = URL(string: card.imageUris.png) {
                                     AsyncImage(url: url) { image in
                                         image.resizable()
                                     } placeholder: {

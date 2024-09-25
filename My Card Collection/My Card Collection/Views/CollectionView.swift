@@ -19,12 +19,11 @@ struct CollectionView: View {
             VStack {
                 if items.isEmpty {
                     Spacer()
-                    Text("Ainda não há cartas adicionadas.")
-                        .font(.body)
+                    Image(systemName: "tray")
+                        .font(.title)
                         .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    Text("Clique em + para adicionar pastas.")
+                        .padding(.all)
+                    Text("Ainda não há cartas adicionadas.")
                         .font(.body)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
@@ -86,16 +85,16 @@ struct CollectionView: View {
                 viewModel.loadItems(from: items)
             }
             .navigationTitle("My Collection")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Ação do botão de adicionar
-                    }) {
-                        Image(systemName: "plus")
-                            .foregroundColor(.accentColor)
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button(action: {
+//                        // Ação do botão de adicionar
+//                    }) {
+//                        Image(systemName: "plus")
+//                            .foregroundColor(.accentColor)
+//                    }
+//                }
+//            }
         }
         .background(Color(UIColor.systemBackground))
     }

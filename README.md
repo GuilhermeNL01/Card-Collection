@@ -1,6 +1,7 @@
 # My Card Collection
 
-![My Card Collection](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c6/83/5c/c6835cb4-a410-7e2e-ba17-b0b8f35e5c87/AppIcon-0-1x_U007ephone-0-1-85-220-0.jpeg/540x540bb.webp)
+<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c6/83/5c/c6835cb4-a410-7e2e-ba17-b0b8f35e5c87/AppIcon-0-1x_U007ephone-0-1-85-220-0.jpeg/540x540bb.webp" alt="My Card Collection" width="150">
+
 
 ## Descrição
 
